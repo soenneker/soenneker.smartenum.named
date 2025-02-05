@@ -1,18 +1,11 @@
-﻿using Soenneker.Tests.FixturedUnit;
-using Xunit;
+﻿using Xunit;
 
 namespace Soenneker.SmartEnum.Named.Tests;
 
-[Collection("Collection")]
-public class NamedSmartEnumTests : FixturedUnitTest
+public class NamedSmartEnumTests
 {
-    public NamedSmartEnumTests(Fixture fixture, ITestOutputHelper output) : base(fixture, output)
-    {
-    }
-
     [Fact]
     public void Default()
     {
-
     }
 }
