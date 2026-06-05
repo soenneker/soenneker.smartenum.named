@@ -11,5 +11,10 @@ public abstract class NamedSmartEnum<TEnum> : SmartEnum<TEnum> where TEnum : Nam
     {
     }
 
+    /// <summary>
+    /// Executes the operator string operation.
+    /// </summary>
+    /// <param name="smartEnum">The smart enum.</param>
+    /// <returns>The result of the operation.</returns>
     public static implicit operator string(NamedSmartEnum<TEnum> smartEnum) => smartEnum.Name;
 }
