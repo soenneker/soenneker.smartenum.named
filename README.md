@@ -3,11 +3,22 @@
 [![](https://img.shields.io/nuget/dt/soenneker.smartenum.named.svg?style=for-the-badge)](https://www.nuget.org/packages/soenneker.smartenum.named/)
 [![](https://img.shields.io/github/actions/workflow/status/soenneker/soenneker.smartenum.named/codeql.yml?label=CodeQL&style=for-the-badge)](https://github.com/soenneker/soenneker.smartenum.named/actions/workflows/codeql.yml)
 
-# ![](https://user-images.githubusercontent.com/4441470/224455560-91ed3ee7-f510-4041-a8d2-3fc093025112.png) Soenneker.SmartEnum.Named
-### A derivative of SmartEnum, with an implicit string operator for Name
+# Soenneker.SmartEnum.Named
 
-## Installation
+A derivative of SmartEnum, with an implicit string operator for Name.
 
-```
+## Install
+
+```bash
 dotnet add package Soenneker.SmartEnum.Named
 ```
+
+## What you get
+
+- `NamedSmartEnum<TEnum>` — A derivative of SmartEnum, with an implicit string operator for Name.
+
+## API at a glance
+
+| API | What it does | Result / important behavior |
+| --- | --- | --- |
+| `NamedSmartEnum<TEnum>.ConversionOperatorDeclaration` | Converts the Named Smart Enum to its string representation. | Converts the Named Smart Enum to its string representation. |
