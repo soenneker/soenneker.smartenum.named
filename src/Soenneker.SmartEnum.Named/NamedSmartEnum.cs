@@ -12,9 +12,9 @@ public abstract class NamedSmartEnum<TEnum> : SmartEnum<TEnum> where TEnum : Nam
     }
 
     /// <summary>
-    /// Converts the Named Smart Enum to its string representation.
+    /// Returns the smart enum's <c>Name</c> value.
     /// </summary>
     /// <param name="smartEnum">Smart-enum value whose name should be returned.</param>
-    /// <returns>The text produced by operator string.</returns>
+    /// <returns>The smart enum's name.</returns>
     public static implicit operator string(NamedSmartEnum<TEnum> smartEnum) => smartEnum.Name;
 }

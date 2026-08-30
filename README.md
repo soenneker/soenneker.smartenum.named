@@ -5,20 +5,39 @@
 
 # Soenneker.SmartEnum.Named
 
-A derivative of SmartEnum, with an implicit string operator for Name.
+An Ardalis SmartEnum base class with an implicit conversion from an enum member to its `Name` string.
 
-## Install
+## Installation
 
 ```bash
 dotnet add package Soenneker.SmartEnum.Named
 ```
 
-## What you get
+## Defining an enum
 
-- `NamedSmartEnum<TEnum>` — A derivative of SmartEnum, with an implicit string operator for Name.
+```csharp
+using Soenneker.SmartEnum.Named;
 
-## API at a glance
+public sealed class OrderStatus : NamedSmartEnum<OrderStatus>
+{
+    public static readonly OrderStatus Pending = new(nameof(Pending), 1);
+    public static readonly OrderStatus Shipped = new(nameof(Shipped), 2);
 
-| API | What it does | Result / important behavior |
-| --- | --- | --- |
-| `NamedSmartEnum<TEnum>.ConversionOperatorDeclaration` | Converts the Named Smart Enum to its string representation. | Converts the Named Smart Enum to its string representation. |
+    private OrderStatus(string name, int value) : base(name, value)
+    {
+    }
+}
+```
+
+## Usage
+
+```csharp
+string statusName = OrderStatus.Pending; // "Pending"
+
+OrderStatus byName = OrderStatus.FromName("Shipped");
+OrderStatus byValue = OrderStatus.FromValue(2);
+```
+
+The implicit conversion always returns `Name`; it does not return the integer `Value`. This is useful when an API expects the enum's textual name, while the inherited SmartEnum APIs still provide lookup, comparison, and enumeration behavior.
+
+The conversion is a C# operator. Serializers and database providers do not necessarily invoke it, so configure the appropriate Ardalis SmartEnum converter for those integrations.
